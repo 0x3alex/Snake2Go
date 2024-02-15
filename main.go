@@ -84,18 +84,13 @@ func checkForAppleHit() {
 func handleApple() {
 	x := rand.Intn(dim-rectSize-0) + 0
 	y := rand.Intn(dim-rectSize-30) + 30
-gen:
 	for x%50 != 0 {
 		x = rand.Intn(dim-rectSize-0) + 0
 	}
 	for y%50 != 0 {
 		y = rand.Intn(dim-rectSize-30) + 30
 	}
-	for _, v := range snake {
-		if v.x == x && v.y == y {
-			goto gen
-		}
-	}
+
 	log.Printf("Apple at: %d, %d\n", x, y)
 	apple.x = x
 	apple.y = y
@@ -127,7 +122,7 @@ func main() {
 		x: int(dim / 2),
 		y: int(dim / 2),
 	})
-	rl.SetTargetFPS(7)
+	rl.SetTargetFPS(10)
 	for !rl.WindowShouldClose() {
 		rl.BeginDrawing()
 		rl.ClearBackground(rl.Black)
