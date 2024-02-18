@@ -129,6 +129,11 @@ func main() {
 		y: int(dim / 2),
 	})
 	rl.SetTargetFPS(10)
+	for !rl.WindowShouldClose() && !rl.IsKeyDown(rl.KeySpace) {
+		rl.BeginDrawing()
+		rl.DrawText("Press Space to start", 0, 0, 30, rl.White)
+		rl.EndDrawing()
+	}
 	for !rl.WindowShouldClose() {
 		rl.BeginDrawing()
 		rl.ClearBackground(color.RGBA{R: 46, G: 204, B: 113, A: 255})
